@@ -16,7 +16,7 @@ void Init() {
 }
 
 void Close() {
-    std::cout << "\033[?25h" << std::flush; // вернуть курсор перед выходом
+  std::cout << "\033[?25h" << std::flush; // вернуть курсор перед выходом
 }
 
 int terminalWidth  = Nsystem("tput cols");
@@ -36,11 +36,8 @@ int main () {
     char key = getchar();
   // выход на q
     if (key == 113) break;
-    // if (key == 113) {
-    //   voprositelnoe_okno(terminalWidth, terminalHeight);
-    //   char confirm = getchar(); // ждём ответа на окно
-    //   if (confirm == 32 || confirm == 10) break; // space или enter — подтвердить выход
-    // }
+  //
+    std::cout << std::flush;
   }
 
 
