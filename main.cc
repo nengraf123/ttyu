@@ -3,9 +3,9 @@
 #include <iostream>
 #include <unistd.h>
 
-#include "h/MySystem.h"
-#include "h/offCanonicalMod.h"
-#include "h/voprositelnoe_okno.h"
+#include "h/MySystem.hpp"
+#include "h/offCanonicalMod.hpp"
+#include "h/voprositelnoe_okno.hpp"
 
 #define END "\033[0m"
 
