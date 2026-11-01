@@ -8,6 +8,8 @@
 #include "h/voprositelnoe_okno.hpp"
 
 #define END "\033[0m"
+#define c std::cout
+#define f std::flush;
 
 
 void Init() {
@@ -32,15 +34,38 @@ int main () {
     std::cout << "\033[H" << std::flush;
   // очищяем терминал
     std::cout << "\033[48;5;136m" << sum << END << std::flush;
+
+
+
+    std::cout << "\033[H" << std::flush;
+    c << "Парсим.." << f;
+    std::cout << "\033[6D" << std::flush;
+    int USDtoRUB = Nsystem("curl -s https://www.cbr-xml-daily.ru/daily_json.js | jq '.Valute.USD.Value'");
+    if (USDtoRUB == 0)
+      std::cout << "ERROR" << std::flush;
+    else
+      std::cout << "\033[H" << std::flush;
+      c << "        " << f;
+      std::cout << "\033[H" << std::flush;
+      std::cout << "USD: " << USDtoRUB << std::flush;
+     
+
+
+
+
+
+
   // блокирует поток, ждёт нажатия printf("Нажата клавиша: %c (code %d)\n", key, key);
     char key = getchar();
   // выход на q
     if (key == 113) break;
-  //
-    std::cout << std::flush;
   }
 
 
   Close();
 }
 
+// - A — вверх
+// - B — вниз
+// - C — вправо
+// - D — влево
